@@ -17,7 +17,7 @@ public class Movement2D : MonoBehaviour
     private bool jumping = false;
     public GameObject pivotGun;
     public GameObject spawnPoint;
-    public Object bulletRef;
+    public GameObject bulletRef;
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
@@ -25,8 +25,7 @@ public class Movement2D : MonoBehaviour
     private bool isDashing;
     private float dashingTime = 0.4f;
     private float dashingCooldown = 2f;
-    
-
+  
     [SerializeField] private TrailRenderer tr;
 
 
@@ -72,17 +71,17 @@ public class Movement2D : MonoBehaviour
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 v_diff = (target - transform.position).normalized;
         float atan2 = Mathf.Atan2(v_diff.y, v_diff.x);
-        pivotGun.transform.rotation = Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg);
+        
 
         if (pivotGun.transform.rotation.eulerAngles.z > 90 && pivotGun.transform.rotation.eulerAngles.z < 270)
         {
-            bras.flipY = true;
+           // bras.flipY = true;
 
             spawnPoint.GetComponent<Transform>().localPosition = new Vector2(1.9f, -0.35f);
         }
         else
         {
-            bras.flipY = false;
+            //bras.flipY = false;
 
             spawnPoint.GetComponent<Transform>().localPosition = new Vector2(1.9f, 0.3f);
         }
@@ -93,11 +92,34 @@ public class Movement2D : MonoBehaviour
 
         //Debug.Log(v_diff.x);
 
-        sr.flipX = (v_diff.x < 0);
+        //sr.flipX = (v_diff.x < 0);
+        if (v_diff.x < 0)
+        {
+            transform.localScale = new Vector2(-1, 1);
+            pivotGun.transform.rotation = Quaternion.Euler(0f, 0f, 180+atan2 * Mathf.Rad2Deg);
+        }
+        else
+        {
+            transform.localScale = new Vector2(1, 1);
+            pivotGun.transform.rotation = Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg);
+        }
         if (Input.GetButtonDown("Fire1"))
         {
 
-            Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
+            //Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
+            GameObject go = Instantiate(bulletRef);
+            go.transform.position = spawnPoint.transform.position;
+            if (transform.localScale.x == -1)
+            {
+                go.transform.eulerAngles = pivotGun.transform.eulerAngles + new Vector3(0, 0, 180);
+
+            } else
+            {
+                go.transform.eulerAngles = pivotGun.transform.eulerAngles;
+
+            }
+
+
         }
 
 
