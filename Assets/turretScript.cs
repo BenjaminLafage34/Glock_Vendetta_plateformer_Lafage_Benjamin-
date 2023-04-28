@@ -22,7 +22,7 @@ public class turretScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,30 +30,30 @@ public class turretScript : MonoBehaviour
     {
         Vector2 targetPos = Target.position;
         Direction = targetPos - (Vector2)transform.position;
-        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position,Direction, Range);
+        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, Range);
 
-        if(rayInfo)
+        if (rayInfo)
         {
-            if(rayInfo.collider.gameObject.tag == "Player")
+            if (rayInfo.collider.gameObject.tag == "Player")
 
-                if(Detected == false)
+                if (Detected == false)
                 {
                     Detected = true;
                 }
-       
+
         }
         else
         {
-            if(Detected == true)
+            if (Detected == true)
             {
                 Detected = false;
 
             }
         }
-    if(Detected)
+        if (Detected)
         {
             Gun.transform.right = -Direction;
-            if(Time.time > nextTimeToFire)
+            if (Time.time > nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1 / FireRate;
                 shoot();
@@ -66,11 +66,14 @@ public class turretScript : MonoBehaviour
         GameObject BulletIns = Instantiate(bullet_turret, ShootPoint.position, Quaternion.identity);
         BulletIns.GetComponent<Rigidbody2D>().AddForce(Direction * Force);
 
+        BulletIns.transform.right = -Direction;
+        BulletIns.GetComponent<Rigidbody2D>().AddForce(Direction * Force);
+
     }
     void OnDrawGizmosSelected()
     {
-      
-        Gizmos.DrawWireSphere(transform.position,Range);
+
+        Gizmos.DrawWireSphere(transform.position, Range);
     }
 }
 

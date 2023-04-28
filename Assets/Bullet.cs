@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -31,5 +32,25 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
         }
         Destroy(gameObject);
+    }
+
+    public void Test()
+    {
+        int a = 10;
+        int res = NewMethod();
+        a = res + a;
+
+    }
+
+    private static int NewMethod()
+    {
+        int res = 15;
+        if (DateTime.Now.Date.Year % 2 == 0)
+        {
+            res = (int)(15 * Math.Cos(15));
+            res = 15 + 100;
+        }
+
+        return res;
     }
 }
