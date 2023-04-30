@@ -25,6 +25,8 @@ public class Movement2D : MonoBehaviour
     private bool isDashing;
     private float dashingTime = 0.4f;
     private float dashingCooldown = 2f;
+
+    public Animator animator;
   
     [SerializeField] private TrailRenderer tr;
 
@@ -63,9 +65,13 @@ public class Movement2D : MonoBehaviour
       
 
         horizontalValue = Input.GetAxis("Horizontal");
+
+        animator.SetFloat("speed", Mathf.Abs(horizontalValue);
+
         if (Input.GetButtonDown("Jump") && jumping == false && JumpCount < 2)
         {
             jumping = true;
+            animator.SetBool("IsJumping", true);
 
         }
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -105,6 +111,16 @@ public class Movement2D : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1"))
         {
+            /*
+            // 5eme balle plus puissante
+            GameObject go = Instantiate(bulletRef);
+            Bullet b = go.GetComponent<Bullet>();
+            bulletCount++;
+            if (bulletCount % 5 == 0)
+                b.Damage = bulletRef.FullDamage;
+            else
+                b.Damage = bulletRef.StandardDamage;
+            */
 
             //Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
             GameObject go = Instantiate(bulletRef);
@@ -124,6 +140,13 @@ public class Movement2D : MonoBehaviour
 
 
     }
+
+    public void OnLanding ()
+    {
+        animator.SetBool("IsJumping", false);
+
+    }
+    
     private IEnumerator Dash()
     {
         canDash = false;

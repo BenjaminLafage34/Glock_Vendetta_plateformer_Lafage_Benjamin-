@@ -7,9 +7,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public const int StandardDamage = 10;
+    public const int FullDamage = 100;
     Rigidbody2D rb;
     Vector2 direction;
     float speed = 1000f;
+    public int Damage { get; set; }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,35 +26,17 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = (direction * speed * Time.fixedDeltaTime);
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
             Destroy(collision.gameObject);
         }
         Destroy(gameObject);
     }
 
-    public void Test()
-    {
-        int a = 10;
-        int res = NewMethod();
-        a = res + a;
 
-    }
-
-    private static int NewMethod()
-    {
-        int res = 15;
-        if (DateTime.Now.Date.Year % 2 == 0)
-        {
-            res = (int)(15 * Math.Cos(15));
-            res = 15 + 100;
-        }
-
-        return res;
-    }
 }
