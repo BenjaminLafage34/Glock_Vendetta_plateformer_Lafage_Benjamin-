@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -21,15 +22,15 @@ public class Movement2D : MonoBehaviour
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
-    private float dashingPower = 15f;
+    private float dashingPower = 13f;
     private bool isDashing;
-    private float dashingTime = 0.4f;
+    private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
-
     public Animator animator;
-  
     [SerializeField] private TrailRenderer tr;
-
+    
+   
+    
 
     SpriteRenderer sr;
 
@@ -66,18 +67,23 @@ public class Movement2D : MonoBehaviour
 
         horizontalValue = Input.GetAxis("Horizontal");
 
-        animator.SetFloat("speed", Mathf.Abs(horizontalValue);
+        animator.SetFloat("speed", Mathf.Abs(horizontalValue));
 
         if (Input.GetButtonDown("Jump") && jumping == false && JumpCount < 2)
         {
             jumping = true;
-            animator.SetBool("IsJumping", true);
+           
 
         }
         Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 v_diff = (target - transform.position).normalized;
         float atan2 = Mathf.Atan2(v_diff.y, v_diff.x);
-        
+
+        bool isJumping = (Math.Abs(rb.velocity.y) >= 0.01);
+        animator.SetBool("isJumping", isJumping);
+
+
+
 
         if (pivotGun.transform.rotation.eulerAngles.z > 90 && pivotGun.transform.rotation.eulerAngles.z < 270)
         {
@@ -117,13 +123,13 @@ public class Movement2D : MonoBehaviour
             Bullet b = go.GetComponent<Bullet>();
             bulletCount++;
             if (bulletCount % 5 == 0)
-                b.Damage = bulletRef.FullDamage;
+                b.Damage = Bullet.FullDamage;
             else
-                b.Damage = bulletRef.StandardDamage;
+                b.Damage = Bullet.StandardDamage;
             */
 
             //Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
-            GameObject go = Instantiate(bulletRef);
+             GameObject go = Instantiate(bulletRef);
             go.transform.position = spawnPoint.transform.position;
             if (transform.localScale.x == -1)
             {
@@ -141,11 +147,8 @@ public class Movement2D : MonoBehaviour
 
     }
 
-    public void OnLanding ()
-    {
-        animator.SetBool("IsJumping", false);
-
-    }
+   
+    
     
     private IEnumerator Dash()
     {
@@ -180,7 +183,7 @@ public class Movement2D : MonoBehaviour
         }
 
     }
-
+    
 
 }
 
