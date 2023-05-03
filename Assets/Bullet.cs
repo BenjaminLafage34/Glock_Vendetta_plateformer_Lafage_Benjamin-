@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     Rigidbody2D rb;
     Vector2 direction;
     float speed = 1000f;
+    public Movement2D Shooter;
     public int Damage { get; set; }
     
 
@@ -33,9 +34,18 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
+            Shooter.Rage += 10;
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null )
+            {
+                enemy.Life -= Damage;
+
+              if (enemy.Life <= 0)
+                    Destroy(collision.gameObject);
+            }
+            
         }
-        Destroy(gameObject);
+        
     }
 
 

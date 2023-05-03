@@ -27,6 +27,7 @@ public class Movement2D : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
     public Animator animator;
+    int bulletCount = 0;
     [SerializeField] private TrailRenderer tr;
     
    
@@ -117,7 +118,7 @@ public class Movement2D : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1"))
         {
-            /*
+            
             // 5eme balle plus puissante
             GameObject go = Instantiate(bulletRef);
             Bullet b = go.GetComponent<Bullet>();
@@ -126,10 +127,10 @@ public class Movement2D : MonoBehaviour
                 b.Damage = Bullet.FullDamage;
             else
                 b.Damage = Bullet.StandardDamage;
-            */
 
+            b.Shooter = this;
             //Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
-             GameObject go = Instantiate(bulletRef);
+              go = Instantiate(bulletRef);
             go.transform.position = spawnPoint.transform.position;
             if (transform.localScale.x == -1)
             {
@@ -180,8 +181,11 @@ public class Movement2D : MonoBehaviour
             rb.AddForce(new Vector2(0f, m_JumpForce));
             JumpCount++;
             jumping = false;
-        }
 
+
+        }
+        
+        
     }
     
 
