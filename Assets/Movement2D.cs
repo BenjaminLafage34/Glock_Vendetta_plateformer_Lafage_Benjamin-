@@ -35,6 +35,8 @@ public class Movement2D : MonoBehaviour
 
     SpriteRenderer sr;
 
+    public int Rage { get; internal set; } = 0;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 345952011}
   - component: {fileID: 345952010}
   - component: {fileID: 345952012}
+  - component: {fileID: 345952013}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Enemy
@@ -391,6 +392,19 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5773587}
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
+--- !u!114 &345952013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345952009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ad299de6d5289479e7dc0a032fa44e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 100
 --- !u!1 &513787219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,8 +1216,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 151.6709
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 16.824707
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3005
+      value: 1.1379505
       objectReference: {fileID: 0}
     - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
       propertyPath: m_LocalScale.y
@@ -1215,11 +1245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -221
+      value: 231.62
       objectReference: {fileID: 0}
     - target: {fileID: 3687496549081530468, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 224
+      value: -42.300003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4ebae6e4baa154fac23f9da1205952, type: 3}
