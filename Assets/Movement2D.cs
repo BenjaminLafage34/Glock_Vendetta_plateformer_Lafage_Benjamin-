@@ -83,7 +83,7 @@ public class Movement2D : MonoBehaviour
         float atan2 = Mathf.Atan2(v_diff.y, v_diff.x);
 
         bool isJumping = (Math.Abs(rb.velocity.y) >= 0.01);
-        animator.SetBool("isJumping", isJumping);
+        animator.SetBool("IsJumping", isJumping);
 
 
 
@@ -132,7 +132,7 @@ public class Movement2D : MonoBehaviour
 
             b.Shooter = this;
             //Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
-              go = Instantiate(bulletRef);
+              
             go.transform.position = spawnPoint.transform.position;
             if (transform.localScale.x == -1)
             {

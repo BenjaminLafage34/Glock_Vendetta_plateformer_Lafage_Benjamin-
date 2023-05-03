@@ -43,9 +43,9 @@ public class Bullet : MonoBehaviour
               if (enemy.Life <= 0)
                     Destroy(collision.gameObject);
             }
-            
+            Destroy(gameObject);
         }
-        
+       
     }
 
 

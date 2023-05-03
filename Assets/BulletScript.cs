@@ -15,8 +15,13 @@ public class BulletScript : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D Col)
+    public void OnCollisionEnter2D(Collision2D Col)
     {
-        Destroy(this.gameObject);
+        if (Col.gameObject.tag == "Player")
+        {
+            Player p = Col.gameObject.GetComponent<Player>();
+            p.TakeDamage(10);
+            Destroy(this.gameObject);
+        }
     }
 }
