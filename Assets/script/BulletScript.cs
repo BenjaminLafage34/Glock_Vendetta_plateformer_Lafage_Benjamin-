@@ -20,7 +20,7 @@ public class BulletScript : MonoBehaviour
         if (Col.gameObject.tag == "Player")
         {
             Player p = Col.gameObject.GetComponent<Player>();
-            p.TakeDamage(10);
+            p.TakeDamage(3);
             Destroy(this.gameObject);
         }
     }

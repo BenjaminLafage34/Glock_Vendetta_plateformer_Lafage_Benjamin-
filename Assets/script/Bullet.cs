@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public const int StandardDamage = 10;
-    public const int FullDamage = 100;
+    public const int StandardDamage = 5;
+    public const int FullDamage = 20;
     Rigidbody2D rb;
     Vector2 direction;
     float speed = 1000f;
-    public Movement2D Shooter;
+    public Player Shooter;
     public int Damage { get; set; }
     
 
@@ -34,7 +34,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Shooter.Rage += 10;
+
+            Shooter.IncreaseRage(10) ;
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null )
             {

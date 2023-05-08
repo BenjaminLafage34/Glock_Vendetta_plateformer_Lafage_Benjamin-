@@ -19,6 +19,7 @@ public class Movement2D : MonoBehaviour
     public GameObject pivotGun;
     public GameObject spawnPoint;
     public GameObject bulletRef;
+    public GameObject Rage_bullet;
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
@@ -130,7 +131,7 @@ public class Movement2D : MonoBehaviour
             else
                 b.Damage = Bullet.StandardDamage;
 
-            b.Shooter = this;
+            b.Shooter = GetComponent<Player>();
             //Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
               
             go.transform.position = spawnPoint.transform.position;

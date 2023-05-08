@@ -6,10 +6,16 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public int minRage = 0;
+    public int currentRage;
+
+    public RageBar RageBar;
 
     public HealthBar healthBar;
     void Start()
     {
+        currentRage = minRage;
+        RageBar.SetMinRage(minRage);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -17,8 +23,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            IncreaseRage(10);
+        }
+
+    }
+    public void IncreaseRage(int rage)
+    {
+        currentRage += rage;
+        RageBar.SetRage(currentRage);
     }
     internal void TakeDamage(int damage)
     {
