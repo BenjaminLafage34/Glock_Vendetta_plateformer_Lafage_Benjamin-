@@ -46,7 +46,7 @@ public class Movement2D : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         /*
         horizontalValue = Input.GetAxis("Horizontal");
@@ -72,6 +72,9 @@ public class Movement2D : MonoBehaviour
         horizontalValue = Input.GetAxis("Horizontal");
 
         animator.SetFloat("speed", Mathf.Abs(horizontalValue));
+
+       /* Vector3 velocity = rb.velocity.y;
+        velocity = AdjustVelocityToStope(velocity);*/
 
         if (Input.GetButtonDown("Jump") && jumping == false && JumpCount < 2)
         {
@@ -191,6 +194,22 @@ public class Movement2D : MonoBehaviour
         
     }
     
+     /*Vector3 AdjustVelocityToStope(Vector3 velocity)
+    {
+        var ray = new Ray(transform.position, Vector3.down);
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
+        {
+            var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+            var adjustedVelocity = slopeRotation * velocity;
+        
+            if (adjustedVelocity.y < 0)
+            {
+                return adjustedVelocity;
+            }
+        }
+        return velocity;
+    }*/
 
 }
 
