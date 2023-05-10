@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Sol
+  - escaliers
   layers:
   - Default
   - TransparentFX
