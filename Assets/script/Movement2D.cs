@@ -20,7 +20,10 @@ public class Movement2D : MonoBehaviour
     public GameObject pivotGun;
     public GameObject spawnPoint;
     public GameObject bulletRef;
+    public GameObject StandardBullet;
     public GameObject Rage_bullet;
+
+
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
@@ -107,9 +110,10 @@ public class Movement2D : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            
-            StartCoroutine(Dash());
             animator.SetBool("IsDashing", true);
+
+          //  StartCoroutine(Dash());
+            
 
 
         }
@@ -129,19 +133,22 @@ public class Movement2D : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1"))
         {
-            
+
             // 5eme balle plus puissante
-            GameObject go = Instantiate(bulletRef);
-            Bullet b = go.GetComponent<Bullet>();
+            GameObject go;
             bulletCount++;
             if (bulletCount % 5 == 0)
-                b.Damage = Bullet.FullDamage;
+                go = CreateBulletInstance(Rage_bullet, Bullet.FullDamage);
             else
-                b.Damage = Bullet.StandardDamage;
+                go = CreateBulletInstance(StandardBullet, Bullet.StandardDamage);
 
-            b.Shooter = GetComponent<Player>();
+
+
+
+
+
             //Instantiate(bulletRef, spawnPoint.transform.position, pivotGun.transform.rotation);
-              
+            
             go.transform.position = spawnPoint.transform.position;
             if (transform.localScale.x == -1)
             {
@@ -158,7 +165,14 @@ public class Movement2D : MonoBehaviour
 
 
     }
-
+    private GameObject CreateBulletInstance(GameObject bulletType, int damage)
+    {
+        GameObject go = Instantiate(bulletType);
+        Bullet b = go.GetComponent<Bullet>();
+        b.Damage = damage;
+        b.Shooter = GetComponent<Player>();
+        return go;
+    }
    
     
     
@@ -173,6 +187,7 @@ public class Movement2D : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         rb.gravityScale = originalGravity;
         isDashing = false;
+        animator.SetBool("IsDashing", false) ;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
         

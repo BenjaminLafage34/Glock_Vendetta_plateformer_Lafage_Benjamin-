@@ -3349,7 +3349,8 @@ MonoBehaviour:
   pivotGun: {fileID: 846278104}
   spawnPoint: {fileID: 2043196369}
   bulletRef: {fileID: 2960089139703565051, guid: 201e1c85d4cf74e4cab9762e896882f2, type: 3}
-  Rage_bullet: {fileID: 0}
+  StandardBullet: {fileID: 2960089139703565051, guid: 201e1c85d4cf74e4cab9762e896882f2, type: 3}
+  Rage_bullet: {fileID: 5319239814509163477, guid: bf4e6548c0109d942a9fbdbbba1cb22f, type: 3}
   bras: {fileID: 513787221}
   JumpCount: 0
   isDashing: 0

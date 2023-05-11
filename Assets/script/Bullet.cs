@@ -29,15 +29,7 @@ public class Bullet : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
             direction = transform.right;
 
-            if (Damage == FullDamage)
-            {
-                Instantiate(MaxDamage);
-                
-            }
-            else
-            {
-                Instantiate(standarddamage);
-            }
+           
         }
     // Update is called once per frame
     void FixedUpdate()
