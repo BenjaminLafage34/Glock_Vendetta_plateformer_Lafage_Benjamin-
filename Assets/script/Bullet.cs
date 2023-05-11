@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,24 +14,39 @@ public class Bullet : MonoBehaviour
     Vector2 direction;
     float speed = 1000f;
     public Player Shooter;
+    
     public int Damage { get; set; }
+
+    public GameObject standarddamage;
+    public GameObject MaxDamage;
+    
     
 
-    // Start is called before the first frame update
+   // Start is called before the first frame update
     void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        direction = transform.right;
-    }
 
+        {
+            rb = GetComponent<Rigidbody2D>();
+            direction = transform.right;
+
+            if (Damage == FullDamage)
+            {
+                Instantiate(MaxDamage);
+                
+            }
+            else
+            {
+                Instantiate(standarddamage);
+            }
+        }
     // Update is called once per frame
     void FixedUpdate()
     {
         rb.velocity = (direction * speed * Time.fixedDeltaTime);
 
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+      void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
@@ -50,4 +66,4 @@ public class Bullet : MonoBehaviour
     }
 
 
-}
+   }

@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Sol
   - escaliers
+  - Bullet_Standard
+  - Bullet_Max
   layers:
   - Default
   - TransparentFX

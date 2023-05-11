@@ -137,3 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shooter: {fileID: 0}
+  standarddamage: {fileID: 0}
+  MaxDamage: {fileID: 5319239814509163477}

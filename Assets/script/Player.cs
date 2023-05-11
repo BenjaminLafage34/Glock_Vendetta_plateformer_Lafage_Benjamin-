@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            IncreaseRage(10);
+            IncreaseRage(3);
         }
 
     }

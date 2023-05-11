@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shooter: {fileID: 0}
+  standarddamage: {fileID: 0}
+  MaxDamage: {fileID: 5319239814509163477, guid: bf4e6548c0109d942a9fbdbbba1cb22f, type: 3}
 --- !u!96 &5874156031821301250
 TrailRenderer:
   serializedVersion: 2
