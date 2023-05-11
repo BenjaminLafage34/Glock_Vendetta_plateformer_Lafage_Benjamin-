@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ public class Movement2D : MonoBehaviour
     float verticalValue;
     Rigidbody2D rb;
     Vector3 m_Velocity = Vector3.zero;
-    [SerializeField] private float m_MovementSmoothing = .05f;
-    float speed = 30f;
-    private float m_JumpForce = 800f;
+    [SerializeField] private float m_MovementSmoothing = 1f;
+    float speed = 40f;
+    private float m_JumpForce = 900f;
     private bool jumping = false;
     public GameObject pivotGun;
     public GameObject spawnPoint;
@@ -23,8 +24,8 @@ public class Movement2D : MonoBehaviour
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
-    private float dashingPower = 13f;
-    private bool isDashing;
+    private float dashingPower = 16f;
+    public bool isDashing;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
     public Animator animator;
@@ -106,9 +107,13 @@ public class Movement2D : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
+            
             StartCoroutine(Dash());
-        }
+            animator.SetBool("IsDashing", true);
 
+
+        }
+        
         //Debug.Log(v_diff.x);
 
         //sr.flipX = (v_diff.x < 0);
@@ -157,7 +162,7 @@ public class Movement2D : MonoBehaviour
    
     
     
-    private IEnumerator Dash()
+    public IEnumerator Dash()
     {
         canDash = false;
         isDashing = true;
@@ -170,10 +175,11 @@ public class Movement2D : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+        
 
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         if (isDashing)
         {

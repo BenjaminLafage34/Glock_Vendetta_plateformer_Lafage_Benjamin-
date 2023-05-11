@@ -3352,6 +3352,7 @@ MonoBehaviour:
   Rage_bullet: {fileID: 0}
   bras: {fileID: 513787221}
   JumpCount: 0
+  isDashing: 0
   animator: {fileID: 1235595082}
   tr: {fileID: 1235595083}
 --- !u!70 &1235595081
@@ -3411,7 +3412,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3431,8 +3432,8 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Time: 0.5
+  m_SortingOrder: 15
+  m_Time: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -3441,13 +3442,13 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: 3.5250742
+        outSlope: 3.5250742
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.20402299
       - serializedVersion: 3
         time: 0.9830508
         value: 0
@@ -3462,8 +3463,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 0.34509805}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key0: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 0.27450982}
+      key1: {r: 1, g: 1, b: 1, a: 0.20784314}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3478,9 +3479,9 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 29684
-      atime1: 52814
-      atime2: 0
+      atime0: 0
+      atime1: 29684
+      atime2: 51464
       atime3: 0
       atime4: 0
       atime5: 0
@@ -3488,12 +3489,12 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    shadowBias: 0.5
+    shadowBias: 3
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
