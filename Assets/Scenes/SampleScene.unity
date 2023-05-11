@@ -5577,6 +5577,7 @@ GameObject:
   - component: {fileID: 1808931795}
   - component: {fileID: 1808931794}
   - component: {fileID: 1808931797}
+  - component: {fileID: 1808931798}
   m_Layer: 0
   m_Name: 'turret '
   m_TagString: Enemy
@@ -5602,7 +5603,7 @@ MonoBehaviour:
   bullet_turret: {fileID: 2107759828019462779, guid: d9a5b6fef8416954bbd9172c70201f17, type: 3}
   FireRate: 1
   ShootPoint: {fileID: 61682031}
-  Force: 80
+  Force: 50
 --- !u!212 &1808931795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5684,6 +5685,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Life: 200
+--- !u!95 &1808931798
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808931793}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3304595f99a29d4788f3b908a5bcabb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1815426912
 GameObject:
   m_ObjectHideFlags: 0
