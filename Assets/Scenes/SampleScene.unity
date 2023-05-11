@@ -2724,7 +2724,7 @@ GameObject:
   - component: {fileID: 1039933794}
   m_Layer: 0
   m_Name: planche_scene_LVL1
-  m_TagString: Untagged
+  m_TagString: Sol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5596,13 +5596,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce9174da2aaaeb49b3cd92930a2b582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 6
+  Range: 12
   Target: {fileID: 1235595078}
   Gun: {fileID: 2131617488}
   bullet_turret: {fileID: 2107759828019462779, guid: d9a5b6fef8416954bbd9172c70201f17, type: 3}
-  FireRate: 2
+  FireRate: 1
   ShootPoint: {fileID: 61682031}
-  Force: 100
+  Force: 80
 --- !u!212 &1808931795
 SpriteRenderer:
   m_ObjectHideFlags: 0

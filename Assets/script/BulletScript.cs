@@ -23,5 +23,9 @@ public class BulletScript : MonoBehaviour
             p.TakeDamage(3);
             Destroy(this.gameObject);
         }
+        if (Col.gameObject.tag == "Sol")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
