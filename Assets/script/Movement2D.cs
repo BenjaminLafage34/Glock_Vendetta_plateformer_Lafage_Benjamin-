@@ -27,7 +27,7 @@ public class Movement2D : MonoBehaviour
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
-    private float dashingPower = 16f;
+    private float dashingPower = 18f;
     public bool isDashing;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
@@ -112,7 +112,7 @@ public class Movement2D : MonoBehaviour
         {
             animator.SetBool("IsDashing", true);
 
-          //  StartCoroutine(Dash());
+            StartCoroutine(Dash());
             
 
 

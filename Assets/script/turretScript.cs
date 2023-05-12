@@ -18,11 +18,11 @@ public class turretScript : MonoBehaviour
     float nextTimeToFire = 2;
     public Transform ShootPoint;
     public float Force;
-
+    public Animator turretanimator;
     // Start is called before the first frame update
     void Start()
     {
-
+        turretanimator = GetComponent<Animator>();  
     }
 
     // Update is called once per frame
@@ -38,6 +38,7 @@ public class turretScript : MonoBehaviour
 
                 if (Detected == false)
                 {
+                    
                     Detected = true;
                 }
 

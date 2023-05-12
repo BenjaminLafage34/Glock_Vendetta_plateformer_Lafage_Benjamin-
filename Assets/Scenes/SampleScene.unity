@@ -5605,6 +5605,7 @@ MonoBehaviour:
   FireRate: 1
   ShootPoint: {fileID: 61682031}
   Force: 50
+  turretanimator: {fileID: 0}
 --- !u!212 &1808931795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5665,8 +5666,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808931793}
   m_LocalRotation: {x: -0, y: -0.002416879, z: 0, w: 0.9999971}
-  m_LocalPosition: {x: 12.48, y: 5.31, z: 0.02}
-  m_LocalScale: {x: 0.46488532, y: 0.46488532, z: 0.46488532}
+  m_LocalPosition: {x: 12.285, y: 5.024, z: 0.02}
+  m_LocalScale: {x: 0.46632648, y: 0.4737646, z: 0.46488532}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2131617490}
@@ -6821,7 +6822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131617488}
   m_LocalRotation: {x: 0.0000040745454, y: 0.0024168754, z: 0.0016858658, w: 0.99999565}
-  m_LocalPosition: {x: 0.6891947, y: 0.60229903, z: -0.0033314298}
+  m_LocalPosition: {x: 0.73, y: 0.61, z: -0}
   m_LocalScale: {x: 0.9525886, y: 0.88468367, z: 2.246816}
   m_ConstrainProportionsScale: 0
   m_Children:
