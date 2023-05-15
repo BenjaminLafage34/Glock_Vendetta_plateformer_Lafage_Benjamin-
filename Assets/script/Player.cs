@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public int minRage = 0;
     public int currentRage;
-
+    public Animator animator;
     public RageBar RageBar;
 
     public HealthBar healthBar;
@@ -33,6 +33,12 @@ public class Player : MonoBehaviour
     {
         currentRage += rage;
         RageBar.SetRage(currentRage);
+
+        if(currentRage >= 100)
+        {
+            currentRage = 0;
+            Movement2D movement2D = GetComponent<Movement2D>();
+        }
     }
     internal void TakeDamage(int damage)
     {
@@ -41,7 +47,9 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
+            animator.SetBool("IsDying", true);
             Destroy(gameObject);
+
         }
     }
 }

@@ -40,6 +40,7 @@ public class turretScript : MonoBehaviour
                 {
                     
                     Detected = true;
+                    turretanimator.SetBool("EnemyDetected", true);
                 }
 
         }

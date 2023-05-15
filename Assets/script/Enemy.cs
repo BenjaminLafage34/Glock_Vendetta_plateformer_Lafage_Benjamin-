@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int Life = 100;
-   /* Animator animator;
+    Animator animator;
     SpriteRenderer spriteRenderer;
     turretScript turretScript;
     public string Name;
@@ -25,7 +25,8 @@ public class Enemy : MonoBehaviour
         {
             spriteRenderer.enabled = false;
             turretScript.enabled = false;
-            //animator.SetBool("Detected");
+           
+            animator.SetBool("TurretDead",true);
         }
-    }*/
+    }
 }

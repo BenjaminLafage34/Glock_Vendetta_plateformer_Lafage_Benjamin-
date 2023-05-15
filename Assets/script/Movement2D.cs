@@ -77,9 +77,7 @@ public class Movement2D : MonoBehaviour
 
         animator.SetFloat("speed", Mathf.Abs(horizontalValue));
 
-       /* Vector3 velocity = rb.velocity.y;
-        velocity = AdjustVelocityToStope(velocity);*/
-
+   
         if (Input.GetButtonDown("Jump") && jumping == false && JumpCount < 2)
         {
             jumping = true;
@@ -214,7 +212,11 @@ public class Movement2D : MonoBehaviour
         
         
     }
-    
+   /* internal string RageAttack()
+    {
+        animator.SetBool("RageAttackEnable", true);
+
+    }/*
      /*Vector3 AdjustVelocityToStope(Vector3 velocity)
     {
         var ray = new Ray(transform.position, Vector3.down);
