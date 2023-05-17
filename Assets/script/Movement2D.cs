@@ -15,7 +15,7 @@ public class Movement2D : MonoBehaviour
     Vector3 m_Velocity = Vector3.zero;
     [SerializeField] private float m_MovementSmoothing = 1f;
     float speed = 40f;
-    private float m_JumpForce = 900f;
+    private float m_JumpForce = 1300f;
     private bool jumping = false;
     public GameObject pivotGun;
     public GameObject spawnPoint;
