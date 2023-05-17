@@ -47,9 +47,11 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
-            animator.SetBool("IsDying", true);
+            
             Destroy(gameObject);
 
         }
+        animator.SetBool("IsDying", true);
     }
+
 }
