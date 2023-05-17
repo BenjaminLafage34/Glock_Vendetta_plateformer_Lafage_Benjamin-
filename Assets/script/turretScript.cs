@@ -15,7 +15,7 @@ public class turretScript : MonoBehaviour
 
     public GameObject bullet_turret;
     public float FireRate;
-    float nextTimeToFire = 2;
+    float nextTimeToFire = 3;
     public Transform ShootPoint;
     public float Force;
     public Animator turretanimator;

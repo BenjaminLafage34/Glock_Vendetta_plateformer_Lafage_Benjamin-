@@ -7107,7 +7107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ad299de6d5289479e7dc0a032fa44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 200
+  Life: 100
   Name: 
 --- !u!95 &1808931798
 Animator:
