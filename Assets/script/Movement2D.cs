@@ -212,27 +212,35 @@ public class Movement2D : MonoBehaviour
         
         
     }
-   /* internal string RageAttack()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        animator.SetBool("RageAttackEnable", true);
-
-    }/*
-     /*Vector3 AdjustVelocityToStope(Vector3 velocity)
-    {
-        var ray = new Ray(transform.position, Vector3.down);
-
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
+        if (other.CompareTag("Enemy"))
         {
-            var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
-            var adjustedVelocity = slopeRotation * velocity;
-        
-            if (adjustedVelocity.y < 0)
-            {
-                return adjustedVelocity;
-            }
+            // Permet au joueur de traverser l'ennemi sans le pousser
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other, true);
         }
-        return velocity;
-    }*/
+    }
+    /* internal string RageAttack()
+     {
+         animator.SetBool("RageAttackEnable", true);
+
+     }/*
+      /*Vector3 AdjustVelocityToStope(Vector3 velocity)
+     {
+         var ray = new Ray(transform.position, Vector3.down);
+
+         if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.2f))
+         {
+             var slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+             var adjustedVelocity = slopeRotation * velocity;
+
+             if (adjustedVelocity.y < 0)
+             {
+                 return adjustedVelocity;
+             }
+         }
+         return velocity;
+     }*/
 
 }
 

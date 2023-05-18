@@ -455,7 +455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135810206}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135810205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 0.78, z: 0}
+  m_LocalPosition: {x: 0.52, y: 0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 262899046}
   - component: {fileID: 262899047}
   - component: {fileID: 262899048}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: planche_sky_lvl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 355711601}
   - component: {fileID: 355711603}
   - component: {fileID: 355711602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "fitre_mena\xE7ant (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3662,7 +3662,7 @@ GameObject:
   - component: {fileID: 1039933792}
   - component: {fileID: 1039933793}
   - component: {fileID: 1039933794}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: planche_scene_LVL1
   m_TagString: Sol
   m_Icon: {fileID: 0}
@@ -4911,7 +4911,7 @@ GameObject:
   - component: {fileID: 1373326304}
   - component: {fileID: 1373326305}
   - component: {fileID: 1373326306}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: asset_building_fond_lvl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6154,7 +6154,8 @@ GameObject:
   - component: {fileID: 1619553937}
   - component: {fileID: 1619553936}
   - component: {fileID: 1619553941}
-  m_Layer: 0
+  - component: {fileID: 1619553942}
+  m_Layer: 3
   m_Name: Sbire
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -6173,6 +6174,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6b8ef23f331974b9873d072379014a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1235595078}
+  attackRange: 10
+  followDistance: 15
+  attackDelay: 1
+  moveSpeed: 3
+  projectilePrefab: {fileID: 2107759828019462779, guid: d9a5b6fef8416954bbd9172c70201f17, type: 3}
+  projectileSpawnPoint: {fileID: 135810206}
+  projectileSpeed: 7
 --- !u!70 &1619553937
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6201,15 +6210,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 2.9261966
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!212 &1619553939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6270,8 +6279,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619553935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.28, y: -1.18, z: 0}
-  m_LocalScale: {x: 1.0756762, y: 1.0222638, z: 1}
+  m_LocalPosition: {x: 13.55, y: -0.81, z: 0}
+  m_LocalScale: {x: 1.3894509, y: 1.320458, z: 1.2917}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 135810206}
@@ -6292,6 +6301,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Life: 100
   Name: 
+--- !u!95 &1619553942
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619553935}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 546dc1cbaa7e7734bb6d80aea2dc0da5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1621905409
 GameObject:
   m_ObjectHideFlags: 0
@@ -6840,7 +6869,7 @@ GameObject:
   - component: {fileID: 1704667413}
   - component: {fileID: 1704667412}
   - component: {fileID: 1704667414}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "fitre_mena\xE7ant"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7418,7 +7447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808931793}
   m_LocalRotation: {x: -0, y: -0.002416879, z: 0, w: 0.9999971}
-  m_LocalPosition: {x: 12.479, y: 5.024, z: 0.021}
+  m_LocalPosition: {x: 12.479, y: 13.34, z: 0.021}
   m_LocalScale: {x: 0.46632648, y: 0.4737646, z: 0.46488532}
   m_ConstrainProportionsScale: 0
   m_Children:
