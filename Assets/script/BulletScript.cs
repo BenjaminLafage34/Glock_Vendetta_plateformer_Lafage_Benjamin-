@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void OnCollisionEnter2D(Collision2D Col)
     {
-        if (Col.gameObject.tag == "Player")
+        if (Col.gameObject.CompareTag("Player"))
         {
             Player p = Col.gameObject.GetComponent<Player>();
             p.TakeDamage(3);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-        if (Col.gameObject.tag == "Sol")
+        if (Col.gameObject.CompareTag("Sol"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
