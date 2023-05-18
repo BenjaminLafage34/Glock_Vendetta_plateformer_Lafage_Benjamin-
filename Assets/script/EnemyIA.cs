@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 public class EnemyIA : MonoBehaviour
-{
+{/*
     public Transform Player;
     public float attackRange = 20f;
     public float followDistance = 20f;
@@ -64,5 +64,5 @@ public class EnemyIA : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
-    }
+    }*/
 }

@@ -18,11 +18,13 @@ public class BulletScript : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D Col)
     {
+       // Debug.Log("Collision detected");
         if (Col.gameObject.CompareTag("Player"))
         {
+            Destroy(gameObject);
             Player p = Col.gameObject.GetComponent<Player>();
             p.TakeDamage(3);
-            Destroy(gameObject);
+           
         }
         if (Col.gameObject.CompareTag("Sol"))
         {

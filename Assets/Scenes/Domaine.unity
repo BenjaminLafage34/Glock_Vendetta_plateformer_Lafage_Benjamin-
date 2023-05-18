@@ -1779,7 +1779,7 @@ GameObject:
   - component: {fileID: 513787221}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3279,7 +3279,7 @@ GameObject:
   - component: {fileID: 846278105}
   m_Layer: 0
   m_Name: PivotGun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4355,7 +4355,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1235595080
 MonoBehaviour:
@@ -6173,17 +6173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6b8ef23f331974b9873d072379014a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1235595078}
-  attackRange: 5
-  followDistance: 0.5
-  attackDelay: 1
-  moveSpeed: 3
-  projectilePrefab: {fileID: 2107759828019462779, guid: d9a5b6fef8416954bbd9172c70201f17, type: 3}
-  projectileSpawnPoint: {fileID: 135810206}
-  projectileSpeed: 10
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 9
 --- !u!70 &1619553937
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -8325,7 +8314,7 @@ GameObject:
   - component: {fileID: 2043196370}
   m_Layer: 0
   m_Name: SpawnPosition
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
