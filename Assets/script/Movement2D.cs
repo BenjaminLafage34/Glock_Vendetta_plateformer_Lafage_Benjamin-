@@ -27,10 +27,10 @@ public class Movement2D : MonoBehaviour
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
-    private float dashingPower = 18f;
+    private float dashingPower = 22f;
     public bool isDashing;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 2f;
+    private float dashingCooldown = 1f;
     public Animator animator;
     int bulletCount = 0;
     [SerializeField] private TrailRenderer tr;

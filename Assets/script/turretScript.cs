@@ -15,7 +15,7 @@ public class turretScript : MonoBehaviour
 
     public GameObject bullet_turret;
     public float FireRate;
-    float nextTimeToFire = 6;
+    float nextTimeToFire = 4;
     public Transform ShootPoint;
     public float Force;
     public Animator turretanimator;
@@ -65,7 +65,7 @@ public class turretScript : MonoBehaviour
     void shoot()
 
     {
-        GameObject BulletIns = Instantiate(bullet_turret, ShootPoint.position, Quaternion.identity);
+        GameObject BulletIns = Instantiate(bullet_turret, ShootPoint.position, Quaternion.identity) ;
         BulletIns.GetComponent<Rigidbody2D>().AddForce(Direction * Force);
 
         BulletIns.transform.right = -Direction;

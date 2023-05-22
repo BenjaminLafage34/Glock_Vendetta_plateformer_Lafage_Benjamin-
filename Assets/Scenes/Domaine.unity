@@ -10090,7 +10090,7 @@ MonoBehaviour:
   bullet_turret: {fileID: 2107759828019462779, guid: d9a5b6fef8416954bbd9172c70201f17, type: 3}
   FireRate: 1
   ShootPoint: {fileID: 61682031}
-  Force: 100
+  Force: 50
   turretanimator: {fileID: 0}
 --- !u!212 &1808931795
 SpriteRenderer:
