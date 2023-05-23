@@ -7,7 +7,7 @@ public class turretScript : MonoBehaviour
     public float Range;
 
     public Transform Target;
-
+    Player Player;
     bool Detected = false;
 
     Vector2 Direction;
@@ -22,12 +22,16 @@ public class turretScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        turretanimator = GetComponent<Animator>();  
+        turretanimator = GetComponent<Animator>();
+        Player = Target.GetComponent<Player>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Target == null || Player.Dead) return;
+
         Vector2 targetPos = Target.position;
         Direction = targetPos - (Vector2)transform.position;
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, Range);
@@ -38,7 +42,7 @@ public class turretScript : MonoBehaviour
 
                 if (Detected == false)
                 {
-                    
+
                     Detected = true;
                     turretanimator.SetBool("EnemyDetected", true);
                 }
@@ -65,7 +69,7 @@ public class turretScript : MonoBehaviour
     void shoot()
 
     {
-        GameObject BulletIns = Instantiate(bullet_turret, ShootPoint.position, Quaternion.identity) ;
+        GameObject BulletIns = Instantiate(bullet_turret, ShootPoint.position, Quaternion.identity);
         BulletIns.GetComponent<Rigidbody2D>().AddForce(Direction * Force);
 
         BulletIns.transform.right = -Direction;

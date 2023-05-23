@@ -15,6 +15,8 @@ public class AscenseurController : MonoBehaviour
 
     private void Update()
     {
+        if (player == null) return;
+
         // Vérifie si le joueur est à proximité de l'ascenseur
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         isPlayerNear = distanceToPlayer <= distanceMaxInteraction;

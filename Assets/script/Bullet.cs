@@ -12,50 +12,48 @@ public class Bullet : MonoBehaviour
     public const int FullDamage = 20;
     Rigidbody2D rb;
     Vector2 direction;
-    float speed = 1000f;
+    /// <summary>
+    /// Speed correspond au nombre de pixels parcourus par secondes de jeux.
+    /// </summary>
+    float speed = 2000f;
     public Player Shooter;
-    
+    private float TravelledDistance = 0;
     public int Damage { get; set; }
 
     public GameObject standarddamage;
     public GameObject MaxDamage;
-    
-    
 
-   // Start is called before the first frame update
+
+
+    // Start is called before the first frame update
     void Start()
 
-        {
-            rb = GetComponent<Rigidbody2D>();
-            direction = transform.right;
+    {
+        rb = GetComponent<Rigidbody2D>();
+        direction = transform.right;
 
-           
-        }
+
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         rb.velocity = (direction * speed * Time.fixedDeltaTime);
-
+        TravelledDistance += speed * Time.fixedDeltaTime;
+        if (TravelledDistance > 1500)
+            Destroy(gameObject);
     }
-    
-      void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-
-            Shooter.IncreaseRage(10) ;
+            Shooter.IncreaseRage(10);
             Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy != null )
+            if (enemy != null)
             {
-                enemy.Life -= Damage;
-
-              
+                enemy.AddDamages(Damage);
             }
-            
             Destroy(gameObject);
         }
-       
     }
-
-
 }

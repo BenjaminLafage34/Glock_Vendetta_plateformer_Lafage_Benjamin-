@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public string bulletLayer = "Bullets"; // Nom du Layer pour les balles
+    public string enemyLayer = "Enemi"; // Nom du Layer pour les ennemis
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        // Affecte le Layer "Bullets" à l'objet balle
+        gameObject.layer = LayerMask.NameToLayer(bulletLayer);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnCollisionEnter2D(Collision2D col)
     {
-
-    }
-    public void OnCollisionEnter2D(Collision2D Col)
-    {
-       // Debug.Log("Collision detected");
-        if (Col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            Player p = Col.gameObject.GetComponent<Player>();
+            Player p = col.gameObject.GetComponent<Player>();
             p.TakeDamage(3);
-           
         }
-        if (Col.gameObject.CompareTag("Sol"))
+        else if (col.gameObject.CompareTag("Sol"))
         {
             Destroy(gameObject);
+        }
+        else if (col.gameObject.layer == LayerMask.NameToLayer(enemyLayer))
+        {
+            // Ne rien faire si la collision est avec un ennemi (layer "Ennemi")
         }
     }
 }

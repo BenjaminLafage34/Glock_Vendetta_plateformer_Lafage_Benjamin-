@@ -8,50 +8,63 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public int minRage = 0;
     public int currentRage;
+    public bool Dead = false;
     public Animator animator;
     public RageBar RageBar;
-
     public HealthBar healthBar;
+    public KeyCode specialAttackKey = KeyCode.R;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         currentRage = minRage;
         RageBar.SetMinRage(minRage);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(specialAttackKey))
         {
-            IncreaseRage(3);
+            RageAttack();
         }
-
     }
+
     public void IncreaseRage(int rage)
     {
         currentRage += rage;
         RageBar.SetRage(currentRage);
 
-        if(currentRage >= 100)
+        if (currentRage >= 100)
         {
-            currentRage = 0;
-            Movement2D movement2D = GetComponent<Movement2D>();
+            currentRage = 100;
+            RageBar.SetRage(currentRage);
         }
     }
+
+    private void RageAttack()
+    {
+        if (currentRage >= 100)
+        {
+            Movement2D movement2D = GetComponent<Movement2D>();
+            StartCoroutine(movement2D.RageAttack());
+            currentRage = 0;
+            RageBar.SetRage(currentRage);
+        }
+    }
+
     internal void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         healthBar.SetHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
-            
-            Destroy(gameObject);
-
+            animator.SetBool("IsDying", true);
+            Dead = true;
+            //animator.
+            // Destroy(gameObject);
         }
-        animator.SetBool("IsDying", true);
     }
-
 }

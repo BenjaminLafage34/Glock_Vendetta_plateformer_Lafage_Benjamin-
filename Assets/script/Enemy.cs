@@ -24,9 +24,18 @@ public class Enemy : MonoBehaviour
         if (Life <= 0 && animator != null)
         {
             spriteRenderer.enabled = false;
-            turretScript.enabled = false;
-           
+            turretScript.enabled = false;           
             animator.SetBool("TurretDead",true);
         }
     }
+
+    public void AddDamages(int damages)
+    {
+        Life -= damages;
+        if(Life <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

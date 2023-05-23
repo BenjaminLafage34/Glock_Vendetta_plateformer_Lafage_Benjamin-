@@ -772,7 +772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135810206}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2048,7 +2048,7 @@ GameObject:
   - component: {fileID: 341823986}
   - component: {fileID: 341823985}
   - component: {fileID: 341823984}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Sbire (3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2497,7 +2497,7 @@ GameObject:
   - component: {fileID: 393441436}
   - component: {fileID: 393441435}
   - component: {fileID: 393441434}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Sbire (6)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2879,7 +2879,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 435159591}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5021,7 +5021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 862098905}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6535,9 +6535,11 @@ MonoBehaviour:
   currentHealth: 0
   minRage: 0
   currentRage: 0
+  Dead: 0
   animator: {fileID: 0}
   RageBar: {fileID: 1151427467}
   healthBar: {fileID: 1509372323}
+  specialAttackKey: 114
 --- !u!1 &1258049683
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,7 +6639,7 @@ GameObject:
   - component: {fileID: 1346644127}
   - component: {fileID: 1346644126}
   - component: {fileID: 1346644125}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Sbire (5)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -7632,7 +7634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1418846576}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8036,7 +8038,7 @@ GameObject:
   - component: {fileID: 1506901807}
   - component: {fileID: 1506901806}
   - component: {fileID: 1506901805}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Sbire (4)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9036,7 +9038,7 @@ GameObject:
   - component: {fileID: 1619553936}
   - component: {fileID: 1619553941}
   - component: {fileID: 1619553942}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sbire
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9098,7 +9100,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1619553939
 SpriteRenderer:
@@ -9469,7 +9471,7 @@ GameObject:
   - component: {fileID: 1637397642}
   - component: {fileID: 1637397641}
   - component: {fileID: 1637397640}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Sbire (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9677,7 +9679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660007187}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10879,7 +10881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933666873}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: spawpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
