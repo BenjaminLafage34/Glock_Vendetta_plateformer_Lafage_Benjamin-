@@ -12,6 +12,6 @@ public class TurretContainerScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = turretObjectTransform.position;
+      //  transform.position = turretObjectTransform.position;
     }
 }

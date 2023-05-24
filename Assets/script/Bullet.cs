@@ -10,6 +10,9 @@ public class Bullet : MonoBehaviour
 {
     public const int StandardDamage = 5;
     public const int FullDamage = 20;
+
+    public bool IsRageBullet = false;
+
     Rigidbody2D rb;
     Vector2 direction;
     /// <summary>
@@ -47,7 +50,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Shooter.IncreaseRage(5);
+            if (!IsRageBullet)
+                Shooter.IncreaseRage(5);
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {

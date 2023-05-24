@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,14 +18,14 @@ public class TurretScriptV2 : MonoBehaviour
     public bool Detected = false;
     public Animator turretanimator;
 
-    private GameObject turretObject;
+    public GameObject warning;
     private bool playerInRange = false;
 
     private void Start()
     {
         turretanimator = GetComponent<Animator>();
-        turretObject = transform.GetChild(0).gameObject; // Assumant que le GameObject que tu veux faire apparaître est un enfant de la tourelle
-        turretObject.SetActive(false);
+        //        turretObject = GetComponentInParent<SpriteRenderer>();// transform.GetChild(0).gameObject; // Assumant que le GameObject que tu veux faire apparaître est un enfant de la tourelle
+        warning.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -43,8 +44,26 @@ public class TurretScriptV2 : MonoBehaviour
                     StartCoroutine(ActivateAndDeactivateTurretObject(0f)); // Lancer la coroutine pour activer et désactiver le GameObject
                 }
 
-                transform.right = -Direction;
-                if (Time.time > nextTimeToFire)
+                bool canShoot = true;
+                if (transform.lossyScale.x < 0f)
+                {
+                    // Tourrelles orientées a droite
+
+                    transform.right = Direction;
+                    float angle = (float)Math.Max(transform.eulerAngles.z, 270);
+                    transform.eulerAngles = new Vector3(0f, 0f, angle);
+                    canShoot = transform.eulerAngles.z > 270;
+                }
+                else
+                {
+                    // Tourrelles orientées a gauche
+                    transform.right = -Direction;
+                    float angle = (float)Math.Min(transform.eulerAngles.z, 90);
+                    transform.eulerAngles = new Vector3(0f, 0f, angle);
+                    canShoot = transform.eulerAngles.z < 90;
+                }
+
+                if (Time.time > nextTimeToFire && canShoot)
                 {
                     nextTimeToFire = Time.time + 1 / FireRate;
                     Shoot();
@@ -56,7 +75,7 @@ public class TurretScriptV2 : MonoBehaviour
             if (playerInRange)
             {
                 playerInRange = false;
-                turretObject.SetActive(false); // Désactiver le GameObject si le joueur sort de la portée de la tourelle
+                warning.gameObject.SetActive(false); // Désactiver le GameObject si le joueur sort de la portée de la tourelle
             }
         }
     }
@@ -72,9 +91,9 @@ public class TurretScriptV2 : MonoBehaviour
 
     private IEnumerator ActivateAndDeactivateTurretObject(float delay)
     {
-        turretObject.SetActive(true); // Activer le GameObject
+        warning.gameObject.SetActive(true); // Activer le GameObject
         yield return new WaitForSeconds(2);
-        turretObject.SetActive(false); // Désactiver le GameObject après le délai spécifié
+        warning.gameObject.SetActive(false); // Désactiver le GameObject après le délai spécifié
     }
 
     private void OnDrawGizmosSelected()

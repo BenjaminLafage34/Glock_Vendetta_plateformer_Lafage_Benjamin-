@@ -148,10 +148,11 @@ public class Movement2D : MonoBehaviour
         }
     }
 
-    private void CreateBulletInstance(GameObject bulletType, int damage)
+    private void CreateBulletInstance(GameObject bulletType, int damage,bool IsRageBullet = false)
     {
         GameObject go = Instantiate(bulletType);
         Bullet b = go.GetComponent<Bullet>();
+        b.IsRageBullet = IsRageBullet;
         b.Damage = damage;
         b.Shooter = GetComponent<Player>();
         bulletCount++;
@@ -217,7 +218,7 @@ public class Movement2D : MonoBehaviour
 
         for (int nbBullet = 0; nbBullet < 20; nbBullet++)
         {
-            CreateBulletInstance(StandardBullet, Bullet.StandardDamage);
+            CreateBulletInstance(StandardBullet, Bullet.StandardDamage,true);
             yield return new WaitForSeconds(0.05f);
         }
         isRaging = false;
