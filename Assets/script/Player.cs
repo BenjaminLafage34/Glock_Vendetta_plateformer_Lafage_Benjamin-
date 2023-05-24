@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public int PlayerDead;
     public int minRage = 0;
     public int currentRage;
     public bool Dead = false;
@@ -13,6 +15,7 @@ public class Player : MonoBehaviour
     public RageBar RageBar;
     public HealthBar healthBar;
     public KeyCode specialAttackKey = KeyCode.R;
+    public GameOverScreen GameOverScreen;
     
 
     void Start()
@@ -76,8 +79,17 @@ public class Player : MonoBehaviour
             Dead = true;
 
             StartCoroutine(DestroyAfterAnimation());
+            PlayerDead = Dead ? 1 : 0;
+            GameOver();
         }
     }
+    public void GameOver()
+    {
+        GameOverScreen.Setup(PlayerDead);
+    }
+    
+    
+            
     private IEnumerator DestroyAfterAnimation()
     {
         // Attendre la fin de l'animation de "IsDying"
@@ -86,5 +98,7 @@ public class Player : MonoBehaviour
         // Détruire le GameObject
         Destroy(gameObject);
     }
+    
+    
 }
 
