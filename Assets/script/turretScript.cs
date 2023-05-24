@@ -30,7 +30,7 @@ public class turretScript : MonoBehaviour
     void Update()
     {
 
-        if (Target == null || Player.Dead) return;
+        //if (Target == null || Player.Dead) return;
 
         Vector2 targetPos = Target.position;
         Direction = targetPos - (Vector2)transform.position;
@@ -65,6 +65,10 @@ public class turretScript : MonoBehaviour
                 shoot();
             }
         }
+        
+        
+         
+        
     }
     void shoot()
 

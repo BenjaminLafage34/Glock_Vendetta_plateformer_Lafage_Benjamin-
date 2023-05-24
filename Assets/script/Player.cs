@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public RageBar RageBar;
     public HealthBar healthBar;
     public KeyCode specialAttackKey = KeyCode.R;
+    
 
     void Start()
     {
@@ -28,7 +29,17 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(specialAttackKey))
         {
             RageAttack();
+           
+
+
+
         }
+       
+        
+
+        
+
+
     }
 
     public void IncreaseRage(int rage)
@@ -63,8 +74,17 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("IsDying", true);
             Dead = true;
-            //animator.
-            // Destroy(gameObject);
+
+            StartCoroutine(DestroyAfterAnimation());
         }
     }
+    private IEnumerator DestroyAfterAnimation()
+    {
+        // Attendre la fin de l'animation de "IsDying"
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        // Détruire le GameObject
+        Destroy(gameObject);
+    }
 }
+

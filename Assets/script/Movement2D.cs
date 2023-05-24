@@ -15,7 +15,7 @@ public class Movement2D : MonoBehaviour
     Rigidbody2D rb;
     Vector3 m_Velocity = Vector3.zero;
     [SerializeField] private float m_MovementSmoothing = 1f;
-    float speed = 40f;
+    float speed = 50f;
     private float m_JumpForce = 1400f;
     private bool jumping = false;
     private bool hasJumped = false;
@@ -29,11 +29,11 @@ public class Movement2D : MonoBehaviour
     public SpriteRenderer bras;
     public int JumpCount;
     private bool canDash = true;
-    private float dashingPower = 18f;
+    private float dashingPower = 20f;
     public bool isDashing;
     private bool isRaging = false;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 2f;
+    private float dashingCooldown = 1f;
     public Animator animator;
     int bulletCount = 0;
     [SerializeField] private TrailRenderer tr;
@@ -76,16 +76,17 @@ public class Movement2D : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && jumping == false && JumpCount < 2)
         {
-             jumping = true;
+            jumping = true;
             hasJumped = true;
+            animator.SetBool("IsJumping", true); // Déclenche l'animation de saut
         }
         else
         {
             bool isJumping = (Math.Abs(rb.velocity.y) >= 0.0001);
-            if (hasJumped && !isJumping)
+            if (!jumping && hasJumped && !isJumping)
             {
                 hasJumped = false;
-                animator.SetBool("IsJumping", hasJumped);
+                animator.SetBool("IsJumping", false); // Arrête l'animation de saut
             }
         }
 
@@ -212,15 +213,15 @@ public class Movement2D : MonoBehaviour
     internal IEnumerator RageAttack()
     {
         isRaging = true;
-        animator.SetBool("RageAttackEnabled", isRaging);
+        animator.SetBool("RageAttackEnabled", true);
 
-        for (int nbBullet = 0; nbBullet < 10; nbBullet++)
+        for (int nbBullet = 0; nbBullet < 20; nbBullet++)
         {
             CreateBulletInstance(StandardBullet, Bullet.StandardDamage);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
         isRaging = false;
-        animator.SetBool("RageAttackEnabled", isRaging);
+        animator.SetBool("RageAttackEnabled", false);
 
     }
 

@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Speed correspond au nombre de pixels parcourus par secondes de jeux.
     /// </summary>
-    float speed = 2000f;
+    float speed = 1000f;
     public Player Shooter;
     private float TravelledDistance = 0;
     public int Damage { get; set; }
@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Shooter.IncreaseRage(10);
+            Shooter.IncreaseRage(5);
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {

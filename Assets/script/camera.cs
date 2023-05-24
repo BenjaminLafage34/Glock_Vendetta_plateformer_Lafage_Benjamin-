@@ -56,9 +56,9 @@ public class camera : MonoBehaviour
             while (hello.m_Lens.OrthographicSize >= variableZoom && Offset.m_FollowOffset.y >= variableZoomTranslate)
             {
                 float coefficient = variableZoom / variableZoomTranslate;
-                hello.m_Lens.OrthographicSize -= 0.05f;
+                hello.m_Lens.OrthographicSize -= 0.01f;
                 hello.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(Offset.m_FollowOffset.x, Offset.m_FollowOffset.y - variableZoomSmooth / coefficient, Offset.m_FollowOffset.z);
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.005f);
             }
 
 
