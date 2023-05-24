@@ -218,7 +218,7 @@ public class Movement2D : MonoBehaviour
         for (int nbBullet = 0; nbBullet < 20; nbBullet++)
         {
             CreateBulletInstance(StandardBullet, Bullet.StandardDamage);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
         isRaging = false;
         animator.SetBool("RageAttackEnabled", false);

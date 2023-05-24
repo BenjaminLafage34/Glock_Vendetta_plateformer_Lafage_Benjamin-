@@ -9,6 +9,7 @@ TagManager:
   - escaliers
   - Bullet_Standard
   - Bullet_Max
+  - warning
   layers:
   - Default
   - TransparentFX

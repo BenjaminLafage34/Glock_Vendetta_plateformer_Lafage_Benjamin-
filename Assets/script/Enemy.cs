@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInParent<Animator>();
-        turretScript = GetComponentInParent<turretScript>();
+        animator = GetComponent<Animator>();
+        turretScript = GetComponent<turretScript>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         if (Life <= 0 && animator != null)
         {
-            spriteRenderer.enabled = false;
+            //spriteRenderer.enabled = false;
             turretScript.enabled = false;           
             animator.SetBool("TurretDead",true);
         }
