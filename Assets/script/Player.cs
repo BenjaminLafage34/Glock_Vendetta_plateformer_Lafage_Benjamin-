@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public KeyCode specialAttackKey = KeyCode.R;
     public GameOverScreen GameOverScreen;
+
     
 
     void Start()
@@ -81,6 +82,19 @@ public class Player : MonoBehaviour
             StartCoroutine(DestroyAfterAnimation());
             PlayerDead = Dead ? 1 : 0;
             GameOver();
+        }
+    }
+    public void SetHealth(int health)
+    {
+        currentHealth = health;
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            
+            Dead = true;
+
+        
         }
     }
     public void GameOver()
