@@ -10,6 +10,7 @@ TagManager:
   - Bullet_Standard
   - Bullet_Max
   - warning
+  - CollisonTag
   layers:
   - Default
   - TransparentFX

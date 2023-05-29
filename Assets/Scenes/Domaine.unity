@@ -1798,6 +1798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 117458856}
   background: {fileID: 8300000, guid: 72039f5b52c746346b507d59833c6cc3, type: 3}
+  revenge: {fileID: 0}
 --- !u!4 &263138764
 Transform:
   m_ObjectHideFlags: 0
@@ -7910,18 +7911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3919ddb7777dbc24fafc3c9fc31fbf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  damageColor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
-  damageDuration: 0.2
-  originalColor:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
 --- !u!1 &1238200493
 GameObject:
   m_ObjectHideFlags: 0
@@ -8095,7 +8084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238200493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.88, y: -1.95, z: 0}
+  m_LocalPosition: {x: 48.37, y: -5.7, z: 0}
   m_LocalScale: {x: 1.3894509, y: 1.320458, z: 1.2917}
   m_ConstrainProportionsScale: 0
   m_Children:

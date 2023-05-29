@@ -43,5 +43,7 @@ public class MouvementObjet : MonoBehaviour
 
         // Met à jour la distance parcourue
         distanceParcourue += Mathf.Abs(deplacement);
+
     }
+   
 }

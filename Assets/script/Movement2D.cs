@@ -40,6 +40,8 @@ public class Movement2D : MonoBehaviour
 
     SpriteRenderer sr;
 
+    
+
     public int Rage { get; internal set; } = 0;
 
     // Start is called before the first frame update
@@ -225,6 +227,7 @@ public class Movement2D : MonoBehaviour
         animator.SetBool("RageAttackEnabled", false);
 
     }
+    
 
     /*Vector3 AdjustVelocityToStope(Vector3 velocity)
    {
