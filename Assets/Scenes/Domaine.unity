@@ -7965,7 +7965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ad299de6d5289479e7dc0a032fa44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
+  Life: 50
   Name: 
 --- !u!114 &1238200496
 MonoBehaviour:
@@ -11603,7 +11603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ad299de6d5289479e7dc0a032fa44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
+  Life: 50
   Name: 
 --- !u!95 &1619553942
 Animator:
@@ -12145,7 +12145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ad299de6d5289479e7dc0a032fa44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
+  Life: 50
   Name: 
 --- !u!114 &1650380973
 MonoBehaviour:
@@ -14237,7 +14237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ad299de6d5289479e7dc0a032fa44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
+  Life: 50
   Name: 
 --- !u!114 &1942648929
 MonoBehaviour:
