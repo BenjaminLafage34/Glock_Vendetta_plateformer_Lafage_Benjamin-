@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,10 +33,19 @@ public class Enemy : MonoBehaviour
     public void AddDamages(int damages)
     {
         Life -= damages;
+        StartCoroutine(TouchedByBullet());
         if(Life <= 0)
         {
             Destroy(gameObject);
         }
     }
 
+    internal IEnumerator TouchedByBullet()
+    {
+
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.10f, 0.10f);
+            yield return new WaitForSeconds(1.500f);
+        GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f);
+
+    }
 }

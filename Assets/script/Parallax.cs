@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,8 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     private float lenght, startpos;
-    public GameObject cam;
+    
+    public Camera Camera;
     public float parallaxEffect;
     void Start()
         
@@ -17,7 +19,7 @@ public class Parallax : MonoBehaviour
     
     void FixedUpdate ()
     {
-        float dist = (cam.transform.position.x * parallaxEffect);
+        float dist = (Camera.transform.position.x * parallaxEffect);
 
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
     }

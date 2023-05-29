@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D (Collider2D other)
     {
         // Vérifie si le joueur entre en collision avec la zone de dégâts
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             // Obtient la référence du script du joueur
             Player player = other.GetComponent<Player>();
@@ -17,7 +17,7 @@ public class DamageZone : MonoBehaviour
             if (player != null)
             {
                 // Réduit la vie du joueur à zéro
-                player.TakeDamage(0);
+                player.TakeDamage(100);
             }
         }
     }
