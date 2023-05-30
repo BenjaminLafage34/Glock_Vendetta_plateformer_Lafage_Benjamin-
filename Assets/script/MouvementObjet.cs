@@ -30,20 +30,20 @@ public class MouvementObjet : MonoBehaviour
         }
 
         // Déplace le sprite
-        Vector3 deplacementVertical = new Vector3(0f, deplacement, 0f);
+        Vector3 deplacementVertical = new Vector3(deplacement, 0f, 0f);
 
         if (versLeHaut)
         {
-            transform.Translate(deplacementVertical);
+            transform.Translate(deplacementVertical, Space.World);
         }
         else
         {
-            transform.Translate(-deplacementVertical);
+            transform.Translate(-deplacementVertical, Space.World);
         }
 
         // Met à jour la distance parcourue
         distanceParcourue += Mathf.Abs(deplacement);
 
     }
-   
+
 }

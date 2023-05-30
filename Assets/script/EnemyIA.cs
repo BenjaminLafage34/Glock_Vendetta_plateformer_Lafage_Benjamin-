@@ -16,6 +16,12 @@ public class EnemyIA : MonoBehaviour
 
     private Animator animator;
 
+    public void SetPlayer(Movement2D movement)
+    {
+        Player = movement.GetComponentInParent<Transform>();
+        followDistance = 100;
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -100,7 +106,7 @@ public class EnemyIA : MonoBehaviour
 
     private void DisableCollisions(Collision2D other)
     {
-        bool ignore = (other.collider.tag == "Player");
+        bool ignore = (other.collider.tag == "Player" || other.collider.tag == "Enemy");
         // Permet au joueur de traverser l'ennemi sans le pousser
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), other.collider, ignore);
 

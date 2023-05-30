@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Balle_qui_tombe
+  m_Name: OLDBalle_qui_tombe
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

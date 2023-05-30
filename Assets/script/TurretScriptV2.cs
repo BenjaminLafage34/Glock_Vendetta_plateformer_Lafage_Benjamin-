@@ -30,6 +30,7 @@ public class TurretScriptV2 : MonoBehaviour
 
     private void Update()
     {
+        if (Target == null) return;
         Vector2 targetPos = Target.position;
         Direction = targetPos - (Vector2)transform.position;
 

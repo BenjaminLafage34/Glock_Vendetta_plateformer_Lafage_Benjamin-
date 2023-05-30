@@ -6,15 +6,26 @@ using UnityEngine;
 public class CarolinaIA : MonoBehaviour
 {
 
+
+
     public Movement2D Player;
 
     public GameObject BalleQuiTombe;
     // Start is called before the first frame update
+    Animator animator;
+    public GameObject SbireTemplate;
+
+    private Enemy Enemy;
+
     void Start()
     {
-
+        animator = GetComponent<Animator>();
+        Enemy = GetComponent<Enemy>();
     }
 
+    public Transform SbiresSpawnPoint;
+
+    DateTime TotalFightTime = DateTime.Now;
     DateTime LastShoot = DateTime.Now;
 
     // Update is called once per frame
@@ -22,15 +33,61 @@ public class CarolinaIA : MonoBehaviour
     {
         DateTime test = DateTime.Now;
 
-        if ((DateTime.Now - LastShoot).TotalSeconds < 5)
+        if ((DateTime.Now - LastShoot).TotalSeconds < 8)
             return;
-
         LastShoot = DateTime.Now;
-        BalleQuiTombe.transform.position = new Vector3(Player.transform.position.x, 40);
-        BalleQuiTombe.GetComponent<M79Bullet>().Player = Player.GetComponent<Player>();
-        Rigidbody2D rigidBody =  BalleQuiTombe.GetComponent<Rigidbody2D>();
-        BalleQuiTombe.GetComponent<Rigidbody2D>().velocity  = new Vector2(2,-50);
-        Instantiate(BalleQuiTombe);
+        SbiresInstanciation();
+        animator.SetBool("IsAiming", true);
+        StartCoroutine(Shoot());
+    }
 
+    bool WaveOneDone = false;
+    bool WaveTwoDone = false;
+    void SbiresInstanciation()
+    {
+        if (!WaveOneDone && (DateTime.Now - TotalFightTime).TotalSeconds > 2)
+        {
+            StartCoroutine(InstanciateSbire(2));
+            WaveOneDone = true;
+        }
+
+        if (!WaveTwoDone && Enemy.Life < 50)
+        {
+            StartCoroutine(InstanciateSbire(3));
+            WaveTwoDone = true;
+        }
+
+    }
+
+    IEnumerator InstanciateSbire(int NbSbires)
+    {
+        for (int i = 0; i < NbSbires; i++)
+        {
+            GameObject newSbire = Instantiate(SbireTemplate);
+            EnemyIA newIA = newSbire.GetComponent<EnemyIA>();
+            newSbire.transform.position = SbiresSpawnPoint.position;
+            newSbire.transform.localScale.Set(1.3f, 1.3f, 1.3f);
+            newIA.SetPlayer(Player);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    internal IEnumerator Shoot()
+    {
+        yield return new WaitForSeconds(2f);
+
+        int nbBullets = 2;
+        if (Enemy.Life < 20) nbBullets = 20;
+
+        for (int i = -nbBullets / 2; i < nbBullets / 2; i++)
+        {
+            GameObject newBullet = Instantiate(BalleQuiTombe);
+            newBullet.transform.position = new Vector3(Player.transform.position.x + i, 40);
+            newBullet.GetComponent<M79Bullet>().Player = Player.GetComponent<Player>();
+            Rigidbody2D rigidBody = newBullet.GetComponent<Rigidbody2D>();
+            newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -10);
+            animator.SetBool("IsAiming", false);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

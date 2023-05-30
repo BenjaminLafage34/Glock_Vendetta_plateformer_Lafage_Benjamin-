@@ -22,24 +22,31 @@ public class M79Bullet : MonoBehaviour
         // Vérifie si le joueur entre en collision avec la zone de dégâts
         if (other.collider.tag == "Sol")
         {
-           // GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+//            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.;
             animator.enabled = true;
             Debug.Log("La balle touche le sol");
             //  animator.enabled = true;
         }
     }
-   
 
-    public void PrintBool()
+    public void Update()
+    {
+        var distance = (Player.transform.position - transform.position).magnitude;
+        Debug.Log($"Distance Balle Joueur {distance}");
+
+    }
+
+
+    public void Explode()
     {
         
         var distance = (Player.transform.position - transform.position).magnitude;
         Debug.Log($"Distance Balle Joueur {distance}");
-        if (distance < 5)
+        if (distance < 4.5)
         {
-            Player.TakeDamage(1);
-            Destroy(this);
+            Player.TakeDamage(10);
         }
+        Destroy(gameObject);
     }
 
 
