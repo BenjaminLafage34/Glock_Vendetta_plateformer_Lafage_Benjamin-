@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
 
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.10f, 0.10f);
-            yield return new WaitForSeconds(1.500f);
+            yield return new WaitForSeconds(0.2f);
         GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f);
 
     }

@@ -13,7 +13,7 @@ public class M79Bullet : MonoBehaviour
 
     void Start()
     {
-//        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -22,8 +22,9 @@ public class M79Bullet : MonoBehaviour
         // Vérifie si le joueur entre en collision avec la zone de dégâts
         if (other.collider.tag == "Sol")
         {
+           // GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            animator.enabled = true;
             Debug.Log("La balle touche le sol");
-            PrintBool();
             //  animator.enabled = true;
         }
     }
@@ -31,6 +32,7 @@ public class M79Bullet : MonoBehaviour
 
     public void PrintBool()
     {
+        
         var distance = (Player.transform.position - transform.position).magnitude;
         Debug.Log($"Distance Balle Joueur {distance}");
         if (distance < 5)

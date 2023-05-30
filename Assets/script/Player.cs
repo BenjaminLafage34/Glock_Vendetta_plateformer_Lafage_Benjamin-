@@ -16,7 +16,11 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
     public KeyCode specialAttackKey = KeyCode.R;
     public GameOverScreen GameOverScreen;
-    
+    SpriteRenderer spriteRenderer;
+    public SpriteRenderer gunSpriteRenderer;
+
+
+
 
 
     void Start()
@@ -26,6 +30,7 @@ public class Player : MonoBehaviour
         RageBar.SetMinRage(minRage);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -73,6 +78,7 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        StartCoroutine(TouchedByBullet());
 
         if (currentHealth <= 0)
         {
@@ -101,7 +107,19 @@ public class Player : MonoBehaviour
         // Détruire le GameObject
         Destroy(gameObject);
     }
-    
-    
+    internal IEnumerator TouchedByBullet()
+    {
+        SpriteRenderer playerSpriteRenderer = GetComponent<SpriteRenderer>();
+
+        playerSpriteRenderer.color = new Color(1.0f, 0.10f, 0.10f);
+        gunSpriteRenderer.color = new Color(1.0f, 0.10f, 0.10f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        playerSpriteRenderer.color = new Color(1.0f, 1.0f, 1.0f);
+        gunSpriteRenderer.color = new Color(1.0f, 1.0f, 1.0f);
+    }
+
+
 }
 
