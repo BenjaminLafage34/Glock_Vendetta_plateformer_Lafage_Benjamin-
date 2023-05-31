@@ -27,7 +27,7 @@ public class SpriteDisplay : MonoBehaviour
         {
             spriteRenderer.enabled = true; // Activer le SpriteRenderer pour afficher le sprite
 
-            Invoke("HideSprite", 4f); // Appeler la fonction HideSprite après 4 secondes
+            Invoke("HideSprite", 5f); // Appeler la fonction HideSprite après 4 secondes
 
             hasTriggered = true; // Définir hasTriggered à true pour indiquer qu'il a été déclenché
         }

@@ -12,6 +12,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip revenge;
     public AudioClip Boss;
     public AudioClip Youwannadie;
+    public AudioClip YouGotBalls;
+    public AudioClip YouCameto;
+    public AudioClip ComeOn;
+    public AudioClip Guys; 
 
     private bool hasTriggered = false; // Variable pour garder une trace de l'état de déclenchement
 
@@ -27,8 +31,12 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = Boss;
             musicSource.Play();
-
+            dialogueSource.PlayOneShot(YouGotBalls, 3f);
             dialogueSource.PlayOneShot(Youwannadie);
+            dialogueSource.PlayOneShot(YouCameto, 5f);
+            dialogueSource.PlayOneShot(ComeOn, 3f);
+            dialogueSource.PlayOneShot(Guys, 2f);
+
 
             hasTriggered = true; // Définir hasTriggered à true pour indiquer qu'il a été déclenché
 
@@ -38,6 +46,9 @@ public class AudioManager : MonoBehaviour
             {
                 collider.enabled = false;
             }
+            
+
         }
     }
+
 }
