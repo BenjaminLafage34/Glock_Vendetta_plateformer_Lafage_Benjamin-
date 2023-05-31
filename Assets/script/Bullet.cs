@@ -58,6 +58,12 @@ public class Bullet : MonoBehaviour
                 enemy.AddDamages(Damage);
             }
             Destroy(gameObject);
+            
+        }
+        if (collision.tag == "Sol")
+        {
+            Destroy(gameObject);
         }
     }
+    
 }

@@ -5,8 +5,9 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - musicSource: {instanceID: 0}
-  - background: {instanceID: 0}
+  - background: {fileID: 8300000, guid: a4ff06255a0cf3c4aa4a762ab203ff44, type: 3}
   - revenge: {instanceID: 0}
+  - Boss: {fileID: 8300000, guid: d45692833392c37419a34eb929fed32e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

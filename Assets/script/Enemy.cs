@@ -10,13 +10,17 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
     turretScript turretScript;
     public string Name;
+  
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        
         animator = GetComponent<Animator>();
         turretScript = GetComponent<turretScript>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -33,7 +37,9 @@ public class Enemy : MonoBehaviour
     public void AddDamages(int damages)
     {
         Life -= damages;
+        
         StartCoroutine(TouchedByBullet());
+       
         if(Life <= 0)
         {
             Destroy(gameObject);
