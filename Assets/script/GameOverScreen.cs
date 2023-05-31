@@ -12,10 +12,18 @@ public class GameOverScreen : MonoBehaviour
         gameObject.SetActive(true);
          
     }
+
     public void RestartButton()
     {
         SceneManager.LoadScene("Domaine");
     }
+
+    public void RestartButtonEntrepot()
+    {
+        SceneManager.LoadScene("entrepôt");
+    }
+
+
     public void ExitButton()
     {
         SceneManager.LoadScene("Menu");

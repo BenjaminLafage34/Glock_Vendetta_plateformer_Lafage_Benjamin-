@@ -15,56 +15,74 @@ public class CarolinaIA : MonoBehaviour
     Animator animator;
     public GameObject SbireTemplate;
 
+
     private Enemy Enemy;
     public float activationDistance = 15f;
     void Start()
     {
         animator = GetComponent<Animator>();
         Enemy = GetComponent<Enemy>();
+        
     }
-    
+
 
     public Transform SbiresSpawnPoint;
 
     DateTime TotalFightTime = DateTime.Now;
     DateTime LastShoot = DateTime.Now;
 
+    bool WarningEnabled = false;
+    bool AttackeEnabled = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, Player.transform.position) <= activationDistance)
-        {
-            DateTime test = DateTime.Now;
+        if (Player == null) return;
 
-            if ((DateTime.Now - LastShoot).TotalSeconds < 5)
-                return;
-            LastShoot = DateTime.Now;
-            SbiresInstanciation();
-            animator.SetBool("IsAiming", true);
-            StartCoroutine(Shoot());
+        if (!WarningEnabled && Vector2.Distance(transform.position, Player.transform.position) <= activationDistance)
+        {
+            WarningEnabled = true;
+            animator.enabled = true;
+            TotalFightTime = DateTime.Now;
         }
+
+        if (WarningEnabled && (DateTime.Now - TotalFightTime).TotalSeconds < 2)
+            return;
+        else
+            AttackeEnabled = true;
+
+
+        DateTime test = DateTime.Now;
+
+        if ((DateTime.Now - LastShoot).TotalSeconds < 5)
+            return;
+        LastShoot = DateTime.Now;
+        SbiresInstanciation();
+        animator.SetBool("IsAiming", true);
+        StartCoroutine(Shoot());
+
     }
-        bool WaveOneDone = false;
-        bool WaveTwoDone = false;
-    
-        void SbiresInstanciation()
+
+    bool WaveOneDone = false;
+    bool WaveTwoDone = false;
+
+    void SbiresInstanciation()
+    {
+        if (!WaveOneDone && (DateTime.Now - TotalFightTime).TotalSeconds > 2)
         {
-            if (!WaveOneDone && (DateTime.Now - TotalFightTime).TotalSeconds > 2)
-            {
-                StartCoroutine(InstanciateSbire(3));
-                WaveOneDone = true;
-            }
-
-            if (!WaveTwoDone && Enemy.Life < 500)
-            {
-                StartCoroutine(InstanciateSbire(3));
-                WaveTwoDone = true;
-            }
-       
-
-        
+            StartCoroutine(InstanciateSbire(3));
+            WaveOneDone = true;
         }
+
+        if (!WaveTwoDone && Enemy.Life < 500)
+        {
+            StartCoroutine(InstanciateSbire(3));
+            WaveTwoDone = true;
+        }
+
+
+
+    }
     IEnumerator InstanciateSbire(int NbSbires)
     {
         for (int i = 0; i < NbSbires; i++)
@@ -84,7 +102,7 @@ public class CarolinaIA : MonoBehaviour
 
         int nbBullets = 4;
         if (Enemy.Life < 200) nbBullets = 15;
-        
+
 
         for (int i = -nbBullets / 2; i < nbBullets / 2; i++)
         {

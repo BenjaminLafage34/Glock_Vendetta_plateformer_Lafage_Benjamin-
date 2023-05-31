@@ -38,17 +38,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(specialAttackKey))
         {
             RageAttack();
-           
-
-
-
         }
-       
-        
-
-        
-
-
     }
 
     public void IncreaseRage(int rage)
@@ -74,7 +64,7 @@ public class Player : MonoBehaviour
         }
     }
 
-     internal void TakeDamage(int damage)
+    internal void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
@@ -89,16 +79,16 @@ public class Player : MonoBehaviour
             PlayerDead = Dead ? 1 : 0;
             GameOver();
         }
-        
+
     }
-    
+
     public void GameOver()
     {
         GameOverScreen.Setup(PlayerDead);
     }
-    
-    
-            
+
+
+
     private IEnumerator DestroyAfterAnimation()
     {
         // Attendre la fin de l'animation de "IsDying"

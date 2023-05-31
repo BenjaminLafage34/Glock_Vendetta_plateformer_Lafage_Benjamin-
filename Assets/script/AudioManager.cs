@@ -29,8 +29,8 @@ public class AudioManager : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !hasTriggered)
         {
-            musicSource.clip = Boss;
-            musicSource.Play();
+            //musicSource.clip = Boss;
+            //musicSource.Play();
             dialogueSource.PlayOneShot(YouGotBalls, 3f);
             dialogueSource.PlayOneShot(Youwannadie);
             dialogueSource.PlayOneShot(YouCameto, 5f);
