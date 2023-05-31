@@ -47,22 +47,24 @@ public class CarolinaIA : MonoBehaviour
     }
         bool WaveOneDone = false;
         bool WaveTwoDone = false;
+    
         void SbiresInstanciation()
         {
             if (!WaveOneDone && (DateTime.Now - TotalFightTime).TotalSeconds > 2)
             {
-                StartCoroutine(InstanciateSbire(2));
+                StartCoroutine(InstanciateSbire(3));
                 WaveOneDone = true;
             }
 
-            if (!WaveTwoDone && Enemy.Life < 50)
+            if (!WaveTwoDone && Enemy.Life < 500)
             {
                 StartCoroutine(InstanciateSbire(3));
                 WaveTwoDone = true;
             }
+       
 
         
-    }
+        }
     IEnumerator InstanciateSbire(int NbSbires)
     {
         for (int i = 0; i < NbSbires; i++)
@@ -81,7 +83,8 @@ public class CarolinaIA : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         int nbBullets = 4;
-        if (Enemy.Life < 300) nbBullets = 15;
+        if (Enemy.Life < 200) nbBullets = 15;
+        
 
         for (int i = -nbBullets / 2; i < nbBullets / 2; i++)
         {
