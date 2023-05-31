@@ -24,15 +24,16 @@ public class M79Bullet : MonoBehaviour
         {
 //            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.;
             animator.enabled = true;
-            Debug.Log("La balle touche le sol");
+            //Debug.Log("La balle touche le sol");
             //  animator.enabled = true;
         }
     }
 
     public void Update()
     {
+        if (Player == null) return;
         var distance = (Player.transform.position - transform.position).magnitude;
-        Debug.Log($"Distance Balle Joueur {distance}");
+        //Debug.Log($"Distance Balle Joueur {distance}");
 
     }
 
@@ -41,7 +42,7 @@ public class M79Bullet : MonoBehaviour
     {
         
         var distance = (Player.transform.position - transform.position).magnitude;
-        Debug.Log($"Distance Balle Joueur {distance}");
+        //Debug.Log($"Distance Balle Joueur {distance}");
         if (distance < 4.5)
         {
             Player.TakeDamage(10);
