@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: b641be4ee8014df44a0b5768d084ec50
   - enabled: 1
+    path: Assets/Scenes/Video_intro.unity
+    guid: 53712492cdc73c74f9ccd40a9d300797
+  - enabled: 1
     path: Assets/Scenes/Domaine.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: "Assets/Scenes/entrep\xF4t.unity"
     guid: 21dfd2ae292489448a15c6e894c61001
   - enabled: 1
-    path: Assets/Scenes/Video_intro.unity
-    guid: 53712492cdc73c74f9ccd40a9d300797
+    path: Assets/Scenes/Cinematique_fin.unity
+    guid: f33eb5f0cbee02b4296becc0c7ad4b95
   m_configObjects: {}

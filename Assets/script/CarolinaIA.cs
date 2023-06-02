@@ -45,22 +45,26 @@ public class CarolinaIA : MonoBehaviour
             animator.enabled = true;
             TotalFightTime = DateTime.Now;
         }
-
-        if (WarningEnabled && (DateTime.Now - TotalFightTime).TotalSeconds < 2)
-            return;
-        else
-            AttackeEnabled = true;
+        else if (!WarningEnabled) return;
 
 
-        DateTime test = DateTime.Now;
+        if (AttackeEnabled)
+        {
+            if ((DateTime.Now - LastShoot).TotalSeconds < 5)
+                return;
+            LastShoot = DateTime.Now;
+            SbiresInstanciation();
+            animator.SetBool("IsAiming", true);
+            StartCoroutine(Shoot());
+        }
+    }
 
-        if ((DateTime.Now - LastShoot).TotalSeconds < 5)
-            return;
-        LastShoot = DateTime.Now;
-        SbiresInstanciation();
-        animator.SetBool("IsAiming", true);
-        StartCoroutine(Shoot());
-
+    /// <summary>
+    /// Est appelé par un AnimationEvent a la fin de l'animation, carolina_warning2
+    /// </summary>
+    public void StartAttack()
+    {
+        AttackeEnabled = true;
     }
 
     bool WaveOneDone = false;
@@ -76,10 +80,10 @@ public class CarolinaIA : MonoBehaviour
 
         if (!WaveTwoDone && Enemy.Life < 500)
         {
-            StartCoroutine(InstanciateSbire(3));
+            StartCoroutine(InstanciateSbire(5));
             WaveTwoDone = true;
         }
-
+        
 
 
     }
@@ -98,9 +102,10 @@ public class CarolinaIA : MonoBehaviour
 
     internal IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         int nbBullets = 4;
+        if (Enemy.Life < 500) nbBullets = 6;
         if (Enemy.Life < 200) nbBullets = 15;
 
 

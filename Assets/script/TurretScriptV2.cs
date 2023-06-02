@@ -10,7 +10,7 @@ public class TurretScriptV2 : MonoBehaviour
     public float nextTimeToFire = 4;
     public Transform ShootPoint;
     public float Force;
-
+    
     public Transform Target;
     private Vector2 Direction;
     public float Range;
@@ -69,6 +69,9 @@ public class TurretScriptV2 : MonoBehaviour
                     nextTimeToFire = Time.time + 1 / FireRate;
                     Shoot();
                 }
+               
+
+
             }
         }
         else
@@ -79,6 +82,7 @@ public class TurretScriptV2 : MonoBehaviour
                 warning.gameObject.SetActive(false); // Désactiver le GameObject si le joueur sort de la portée de la tourelle
             }
         }
+        
     }
 
     private void Shoot()

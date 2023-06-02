@@ -16,6 +16,15 @@ public class VideoPlayerController : MonoBehaviour
         // S'abonner à l'événement de fin de lecture de la vidéo
         videoPlayer.loopPointReached += OnVideoFinished;
     }
+    void Update()
+    {
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+            SceneManager.LoadScene("Domaine");
+        }
+    }
 
     void OnVideoFinished(VideoPlayer vp)
     {

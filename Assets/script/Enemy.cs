@@ -3,24 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     public int Life = 100;
     Animator animator;
     SpriteRenderer spriteRenderer;
-    turretScript turretScript;
+    TurretScriptV2 turretScript;
     public string Name;
     public HealthBar HealthBar;
+    
+
+    protected abstract void ActionOnDeath();
 
     // Start is called before the first frame update
     void Start()
     {
 
         animator = GetComponent<Animator>();
-        turretScript = GetComponent<turretScript>();
+        turretScript = GetComponent<TurretScriptV2>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        HealthBar?.SetMaxHealth(Life);
-        Debug.Log("Damages init with MaxHealth" + Life);
+        HealthBar?.SetMaxHealth(Life);       
 
     }
 
@@ -31,13 +33,13 @@ public class Enemy : MonoBehaviour
         {
             //spriteRenderer.enabled = false;
             turretScript.enabled = false;
-            animator.SetBool("TurretDead", true);
+            animator.SetBool("IsKO", true);
         }
     }
 
     public void AddDamages(int damages)
     {
-        Debug.Log("New Damages" + damages);
+        
         Life -= damages;
         
         HealthBar?.SetHealth(Life);
@@ -46,7 +48,7 @@ public class Enemy : MonoBehaviour
 
         if (Life <= 0)
         {
-            Destroy(gameObject);
+            ActionOnDeath();
         }
     }
 

@@ -29,13 +29,16 @@ public class AudioManager : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !hasTriggered)
         {
-            //musicSource.clip = Boss;
-            //musicSource.Play();
+            if (tag == "Boss" && Boss != null)
+            {
+                musicSource.clip = Boss;
+                musicSource.Play();
+            }
             dialogueSource.PlayOneShot(YouGotBalls, 3f);
             dialogueSource.PlayOneShot(Youwannadie);
-            dialogueSource.PlayOneShot(YouCameto, 5f);
+            dialogueSource.PlayOneShot(YouCameto, 3f);
             dialogueSource.PlayOneShot(ComeOn, 3f);
-            dialogueSource.PlayOneShot(Guys, 2f);
+            dialogueSource.PlayOneShot(Guys, 5f);
 
 
             hasTriggered = true; // Définir hasTriggered à true pour indiquer qu'il a été déclenché

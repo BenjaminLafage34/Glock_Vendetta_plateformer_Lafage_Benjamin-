@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
 
     internal void TakeDamage(int damage)
     {
+        
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         StartCoroutine(TouchedByBullet());

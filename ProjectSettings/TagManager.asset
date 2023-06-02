@@ -11,6 +11,7 @@ TagManager:
   - Bullet_Max
   - warning
   - CollisonTag
+  - Boss
   layers:
   - Default
   - TransparentFX

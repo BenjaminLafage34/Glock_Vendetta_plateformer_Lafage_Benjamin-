@@ -45,7 +45,7 @@ public class M79Bullet : MonoBehaviour
         //Debug.Log($"Distance Balle Joueur {distance}");
         if (distance < 4.5)
         {
-            Player.TakeDamage(10);
+            Player.TakeDamage(20);
         }
         Destroy(gameObject);
     }
